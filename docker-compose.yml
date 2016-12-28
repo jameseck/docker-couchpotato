@@ -1,0 +1,8 @@
+version: '2'
+services:
+  couchpotato:
+    build: .
+    image: jameseckersall/couchpotato
+    user: "100000"
+    ports:
+      - "5050:5050"
