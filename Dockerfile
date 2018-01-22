@@ -1,12 +1,12 @@
-FROM alpine:3.4
+FROM alpine:latest
 
 # Install required packages
 RUN \
-  apk add --no-cache ca-certificates py-openssl py-lxml git
-RUN \
+  apk add --update ca-certificates openssl py-openssl py-lxml py-pip git && \
   git clone https://github.com/CouchPotato/CouchPotatoServer.git /couchpotato && \
-  mkdir /data /download /media || true && \
-  chmod 0777 -R /couchpotato /data /download /media
+  mkdir /couchpotato /data /download /media || true && \
+  chmod 0775 -R /couchpotato /data /download /media && \
+  rm -rf /var/cache/apk/*
 
 COPY start.sh /start.sh
 
