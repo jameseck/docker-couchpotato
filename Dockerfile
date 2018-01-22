@@ -10,6 +10,8 @@ RUN \
 
 COPY start.sh /start.sh
 
+ENV DATA_DIR=/media
+
 VOLUME ["/data", "/download", "/media"]
 
 WORKDIR /data
